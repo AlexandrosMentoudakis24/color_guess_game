@@ -1,3 +1,5 @@
+import 'package:color_guess_application/providers/auth_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -5,10 +7,18 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Home Screen",
+        ),
+      ),
       body: Center(
-        child: Text(
-          "HomeScreen",
+        child: ElevatedButton(
+          onPressed: () => context.read<AuthProvider>().logoutUser(),
+          child: const Text(
+            "Logout",
+          ),
         ),
       ),
     );
